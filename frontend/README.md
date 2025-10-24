@@ -1,3 +1,26 @@
+# Frontend (Clarity)
+
+This is the React + Vite frontend for Clarity.
+
+Setup
+
+```cmd
+cd frontend
+npm install
+copy .env.example .env
+# edit .env to set VITE_API_BASE if your backend is hosted elsewhere
+npm run dev
+```
+
+Build for production
+
+```cmd
+npm run build
+```
+
+Notes
+- The frontend expects a Vite env variable `VITE_API_BASE` (see `.env.example`).
+- On login/register the JWT token is stored in `localStorage` and Axios includes it automatically.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

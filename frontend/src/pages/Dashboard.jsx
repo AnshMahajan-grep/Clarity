@@ -90,7 +90,11 @@ const Dashboard = () => {
               {loadingAnnouncements ? (
                 <div className="loading">Loading announcements...</div>
               ) : (
-                <AnnouncementsList announcements={announcements} />
+                <AnnouncementsList
+                  announcements={announcements}
+                  onDeleted={(id) => setAnnouncements((p) => p.filter((x) => x._id !== id))}
+                  onUpdated={(updated) => setAnnouncements((p) => p.map((a) => (a._id === updated._id ? updated : a)))}
+                />
               )}
             </div>
           </div>
@@ -110,7 +114,11 @@ const Dashboard = () => {
               {loadingTasks ? (
                 <div className="loading">Loading tasks...</div>
               ) : (
-                <TasksList tasks={tasks} />
+                <TasksList
+                  tasks={tasks}
+                  onDone={(id) => setTasks((p) => p.filter((t) => t._id !== id))}
+                  onDeleted={(id) => setTasks((p) => p.filter((t) => t._id !== id))}
+                />
               )}
             </div>
           </div>

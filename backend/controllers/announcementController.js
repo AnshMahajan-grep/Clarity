@@ -99,3 +99,20 @@ export const confirmAnnouncement = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+export const deleteAnnouncement = async (req, res) => {
+  try {
+    const ann = await Announcement.findById(req.params.id);
+    if (!ann) return res.status(404).json({ error: 'Announcement not found' });
+
+    // Only the user who posted can delete (or extend to admin check)
+    if (!req.user || ann.postedBy.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ error: 'Not authorized to delete this announcement' });
+    }
+
+    await Announcement.deleteOne({ _id: req.params.id });
+    res.json({ message: 'Announcement deleted' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

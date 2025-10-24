@@ -36,6 +36,33 @@ body {
 .panel-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(15,23,42,0.04)}
 .panel-body{padding:16px}
 
+/* Make the UI more vibrant and luxurious */
+body{background:linear-gradient(180deg,#eef6ff,#f7fbff 60%)}
+.site-brand{letter-spacing:0.6px}
+.panel{border:1px solid rgba(10,102,194,0.04);}
+.announcement-card{transition:transform .12s ease,box-shadow .12s ease}
+.announcement-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,102,194,0.08)}
+.task-card{transition:transform .12s ease,box-shadow .12s ease}
+.task-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(29,161,242,0.06)}
+
+.announcement-title{color:#072f5f}
+.announcement-desc{color:#23304a}
+.deadline{background:linear-gradient(90deg,rgba(10,102,194,0.08),rgba(29,161,242,0.05));padding:6px 8px;border-radius:6px;font-weight:600;color:var(--accent)}
+
+.chip{background:linear-gradient(90deg,rgba(10,102,194,0.06),rgba(29,161,242,0.03));padding:8px 12px;border-radius:999px;font-weight:600;color:#062c52}
+
+.site-header{background:linear-gradient(90deg,#ffffff,#f1f9ff);border-bottom:1px solid rgba(10,102,194,0.04)}
+
+.panel-header h2{margin:0;font-size:16px;color:#062c52}
+
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 8px 20px rgba(13,82,153,0.12)}
+.btn-primary:hover{transform:translateY(-2px)}
+
+.add-ann-form input:focus, .add-ann-form textarea:focus, .add-task-form input:focus, .add-task-form textarea:focus{outline:none;box-shadow:0 6px 18px rgba(10,102,194,0.06);border-color:rgba(10,102,194,0.12)}
+
+.form-error{background:linear-gradient(90deg,#fff2f2,#fff2f2);padding:8px;border-radius:6px;border:1px solid rgba(185,28,28,0.08);color:#86181d}
+
+
 /* Forms */
 .add-ann-form input,
 .add-ann-form textarea,

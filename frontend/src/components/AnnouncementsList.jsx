@@ -1,7 +1,7 @@
 import React from 'react';
 import AnnouncementCard from './AnnouncementCard';
 
-const AnnouncementsList = ({ announcements }) => {
+const AnnouncementsList = ({ announcements, onDeleted, onUpdated }) => {
   if (!announcements) return null;
 
   // Filter out expired on client as extra safety
@@ -16,7 +16,9 @@ const AnnouncementsList = ({ announcements }) => {
       {visible.length === 0 ? (
         <div className="empty">No announcements available.</div>
       ) : (
-        visible.map((ann) => <AnnouncementCard key={ann._id} ann={ann} />)
+        visible.map((ann) => (
+          <AnnouncementCard key={ann._id} ann={ann} onDeleted={onDeleted} onUpdated={onUpdated} />
+        ))
       )}
     </div>
   );
