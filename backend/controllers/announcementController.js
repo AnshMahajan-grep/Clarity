@@ -9,13 +9,25 @@ export const createAnnouncement = async (req, res) => {
       return res.status(403).json({ error: "Email not verified" });
     }
 
-    const { title, description, deadline, category, resources } = req.body;
+    const { title, description, deadline, category, resources, batches } = req.body;
+
+    // validate batches - must be an array of numbers
+    if (!batches || !Array.isArray(batches) || batches.length === 0) {
+      return res.status(400).json({ error: 'Batches are required (e.g. [2027,2028])' });
+    }
+
+    const parsedBatches = batches.map((b) => Number(b)).filter((n) => !Number.isNaN(n));
+    if (parsedBatches.length === 0) {
+      return res.status(400).json({ error: 'Batches must be numeric years' });
+    }
+
     const ann = await Announcement.create({
       title,
       description,
       deadline: deadline ? new Date(deadline) : undefined,
       category,
       resources: resources || [],
+      batches: parsedBatches,
       postedBy: req.user._id,
     });
     await ann.populate("postedBy", "name email");
