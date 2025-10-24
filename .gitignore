@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build / dist folders (frontend)
+dist/
+build/
+
+# Vite / React cache
+.vite/
+.idea/
+.vscode/
+
+# Optional: MongoDB local data (if any)
+data/
+
+# Optional: temp files
+*.tmp
+*.swp
