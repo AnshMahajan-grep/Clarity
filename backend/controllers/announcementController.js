@@ -1,6 +1,6 @@
 // backend/controllers/announcementController.js
 import Announcement from "../models/Announcement.js";
-import User from "../models/user.js";
+// import User from "../models/user.js";
 
 export const createAnnouncement = async (req, res) => {
   try {

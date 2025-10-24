@@ -36,10 +36,7 @@ cd frontend
 npm run build
 ```
 
-2. Start backend configured with `NODE_ENV=production` and ensure `CLIENT_URL` is set if needed. The backend will serve the built frontend from `../frontend/dist`.
-
-Notes
-- See `backend/.env.example` and `frontend/.env.example` for environment variables.
+Notes:
 - The backend has protected routes; register and login to obtain a JWT stored in `localStorage` by the frontend.
 
 Next steps
